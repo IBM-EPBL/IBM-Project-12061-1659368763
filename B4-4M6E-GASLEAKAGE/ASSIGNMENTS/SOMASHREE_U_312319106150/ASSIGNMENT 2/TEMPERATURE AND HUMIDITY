@@ -1,12 +1,16 @@
-
 import random
-while(1):
-    temp=random.randint(1,100)
-    humidity=random.randint(1,100)
-    if (temp>=38):
-        if (humidity<=30):
-            print("temperature rise")
-        else:
-            print("humidity is normal while temperature is hot")
-    else:
-        print("temperature is normal")
+from time import sleep
+
+def generate_values():
+  temperature = random.randint(10, 50)
+  humidity = random.randint(10, temperature)
+  return humidity, temperature
+
+humidity = temperature = 0
+
+while temperature < 45:
+  humidity, temperature = generate_values()
+  print('Humidity:', humidity, 'Temperature:', temperature)
+  sleep(0.50)
+
+print('High Temperature Detected')
